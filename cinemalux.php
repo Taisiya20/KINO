@@ -1,3 +1,5 @@
 <?php
     include 'cin_func.php';
-    make_hall(4,10,true);
+    $row = 4;
+    $seat = 10;
+    make_hall($row, $seat, true);

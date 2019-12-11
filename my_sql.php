@@ -67,13 +67,26 @@
         $res=sql_q($sql,$dbh,'info');
         return $res[0];
     }
-//    $dsn = 'mysql:dbname=den_test;host=localhost';
-//    $user = 'den';
-//    $password = 'jDhIIhWLmBqX';
-//    try {
-//        $dbh = new PDO($dsn, $user, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'set names utf8mb4 collate utf8mb4_general_ci'));
-//    } catch (PDOException $e) {
-//        echo 'Подключение не удалось: ' . $e->getMessage();
-//    }
+
+    function sql_sign($dbh, $time, $cinema_id, $film_id, $row, $seat, $user_id)
+    {
+        $sql = "INSERT INTO `sign` set `time`=$time, `cinema_id`=$cinema_id, `user_id`=$user_id, `film_id`=$film_id, `row`=$row, `seat`=$seat";
+        $sth=$dbh->prepare($sql);
+        $a=$sth->execute();
+        return $a;
+    }
+
+    function sql_get_signs($dbh, $time, $cinema_id, $film_id, $user_id = null)
+    {
+        if ($user_id)
+            $sql = "SELECT row, seat FROM `sign` WHERE `time`=$time, `cinema_id`=$cinema_id, `film_id`=$film_id";
+        else
+            $sql = "SELECT row, seat FROM `sign` WHERE `time`=$time, `cinema_id`=$cinema_id, `film_id`=$film_id, `user_id`=$user_id";
+        $sth=$dbh->prepare($sql);
+        $a=$sth->execute();
+        $res = $sth->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
+
 
 

@@ -1,4 +1,5 @@
-<?php include 'toolbar.php';
+<?php
+include 'toolbar.php';
 include 'my_sql.php';?>
         <div id="info">
             <h2><span style="text-align: center"> Адреса кинотеатров:</br>Кинотеатр "Звезда" - МО, г.Одинцово, ТЦ "Stars"</br>
