@@ -6,6 +6,11 @@
  * Time: 18:48
  */
 
+    function fuck_debug($var){
+        var_dump($var);
+        echo "<br>";
+    }
+
     session_start();
     include 'my_sql.php';
     if ($_SESSION['name']!=NULL){
@@ -35,9 +40,9 @@
 
             $sql = "SELECT * FROM user_db where name=:name";
             $a = sql_q($sql, $dbh, 'name', $reg_name);
-
             //проверка правильности подвержения пароля
             if (($passconf1 == $passconf2) && ($a == 0)) {
+                echo "here<br>";
                 $status_err['conf wr'] = false;
                 $passconf1 = password_hash($passconf1,PASSWORD_BCRYPT, $options);
                 $sql = 'Insert into user_db(name,pass) values(:name,:pass);';
@@ -54,7 +59,7 @@
 
                     die();
                 } else {
-                    echo 'обнаружен баг, напишите разработчику, e-mail:denis.mazohin@ya.ru';
+                    echo 'обнаружен баг, напишите разработчику, e-mail:denis.mazohin@ya.ru<br>';
                     die();
                 }
             } else {

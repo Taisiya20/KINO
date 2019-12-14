@@ -42,6 +42,20 @@
         $sth = $dbh->prepare($sql);
         $sth->bindParam(':name', $name, PDO::PARAM_STR);
         $sth->bindParam(':pass', $pass, PDO::PARAM_STR);
+        echo "<br>";echo "<br>";echo "<br>";
+        var_dump($sql);
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
+        var_dump($sth);
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
+        var_dump($name);
+        echo "<br>";echo "<br>";
+        var_dump($pass);
         $a = $sth->execute();
         return $a;
     }
