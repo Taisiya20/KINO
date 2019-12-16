@@ -2,6 +2,7 @@
 <?php
     include 'toolbar.php';
     include 'my_sql.php';
+    require_once 'area_gen.php';
 	?>
 	
 <div style="margin-left: 13% ">
@@ -12,36 +13,66 @@
 
     <h2>Расписание сеансов (действительно для всех кинотеатров):</h2>
 
-	<h2>Холодное сердце 2 (3d)</h2>
-	<p>10:10   11:00   12:45   15:00   16:30   18:10   19:00</p>
-            <div>
-                <form action="create_sign.php">
-                    <input type="submit" name="10:10" value="10:10">
-                    <input type="submit" name="11:00" value="11:00">
-                    <input type="submit" name="12:45" value="12:45">
-                    <input type="submit" name="15:00" value="15:00">
-                    <input type="submit" name="16:30" value="16:30">
-                    <input type="submit" name="18:10" value="18:10">
-                    <input type="submit" name="19:00" value="19:00">
+<?php
+        $sql ="SELECT * FROM `soonfilms`";
+        $res=sql_q($sql,$dbh,'info');
+        $i=0;
+        //var_dump($res[1]['release']);
 
-            </div>
-	<h2>Рождество на двоих (3d)</h2>
-	<p>10:30   11:30   12:10   14:40   17:00   18:30   20:00   21:30</p>
-	<h2>Джуманджи: Новый уровень (3d)</h2>
-	<p>10:10   12:40    13:40   15:00   18:30   20:10   21:30   22:40</p>
-	<h2>Лев Яшин. Вратарь моей мечты. (2d)</h2>
-	<p>10:30   11:40    13:00   14:00   16:30   18:10   19:30   20:40</p>
-	<h2>Ржев (2d)</h2>
-	<p>10:50   12:20    13:00   15:20   17:30   19:10   21:00   22:20</p>
-	<h2>Достать ножи (2d)</h2>
-	<p>10:20   12:40    13:40   15:20   18:20   20:00   21:00   22:00</p>
-	<h2>Аэронавты (2d)</h2>
-	<p>10:10   11:40    13:00   15:00   18:30   20:10</p>
-	<h2>Фабрика грёз (3d)</h2>
-	<p>10:40   12:00    13:10   14:00   16:30   18:10   20:30   22:00</p>
-	
-</div>
-	
+        //    while (count($res[$i])>$i){
+        foreach ($res as $key){
+            if ($key['hidden'])
+                continue;
+            echo'
+            <div class="article"> Дата выхода: '. $key['release'].'
+                <h2>' . $key['title'] . '</h2>';
+                //<h3> Жанр:'.$res[$i]['genre'].'</h3>
+                //<h3> Возраст:'.$res[$i]['age'].'</h3>
+                echo '<h3> Цена билета:' . $key['price'] . ' рублей</h3>';
+                $input = new area_gen();
+                echo '<form action="film.php" method="get">';
+                $input->make_hidden("film", $key['id']);
+                $input->make_submit("time", "10:10");
+                $input->make_submit("time", "11:00");
+                $input->make_submit("time", "12:45");
+                $input->make_submit("time", "15:00");
+                $input->make_submit("time", "16:30");
+                $input->make_submit("time", "18:10");
+                $input->make_submit("time", "19:00");
+                echo '</form>';
+            echo '</div>';
+        }
+//     ?>
+<!--	<h2>Холодное сердце 2 (3d)</h2>-->
+<!--	<p>10:10   11:00   12:45   15:00   16:30   18:10   19:00</p>-->
+<!--            <div>-->
+<!--                <form action="create_sign.php">-->
+<!--                    <input type="submit" name="10:10" value="10:10">-->
+<!--                    <input type="submit" name="11:00" value="11:00">-->
+<!--                    <input type="submit" name="12:45" value="12:45">-->
+<!--                    <input type="submit" name="15:00" value="15:00">-->
+<!--                    <input type="submit" name="16:30" value="16:30">-->
+<!--                    <input type="submit" name="18:10" value="18:10">-->
+<!--                    <input type="submit" name="19:00" value="19:00">-->
+<!---->
+<!--            </div>-->
+<!--	<h2>Рождество на двоих (3d)</h2>-->
+<!--	<p>10:30   11:30   12:10   14:40   17:00   18:30   20:00   21:30</p>-->
+<!--	<h2>Джуманджи: Новый уровень (3d)</h2>-->
+<!--	<p>10:10   12:40    13:40   15:00   18:30   20:10   21:30   22:40</p>-->
+<!--	<h2>Лев Яшин. Вратарь моей мечты. (2d)</h2>-->
+<!--	<p>10:30   11:40    13:00   14:00   16:30   18:10   19:30   20:40</p>-->
+<!--	<h2>Ржев (2d)</h2>-->
+<!--	<p>10:50   12:20    13:00   15:20   17:30   19:10   21:00   22:20</p>-->
+<!--	<h2>Достать ножи (2d)</h2>-->
+<!--	<p>10:20   12:40    13:40   15:20   18:20   20:00   21:00   22:00</p>-->
+<!--	<h2>Аэронавты (2d)</h2>-->
+<!--	<p>10:10   11:40    13:00   15:00   18:30   20:10</p>-->
+<!--	<h2>Фабрика грёз (3d)</h2>-->
+<!--	<p>10:40   12:00    13:10   14:00   16:30   18:10   20:30   22:00</p>-->
+<!--	-->
+<!--</div>-->
+<!--	-->
 	<img></div>
 	<div style="margin-left: 13% ">
 	<img src='img/1kino.jpg'>

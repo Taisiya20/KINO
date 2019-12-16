@@ -6,6 +6,9 @@ html,body{
 body{
     background-color: #F5B258;
 	background-image:url("img/fon.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 p{
@@ -57,7 +60,6 @@ li a{
 .tool :hover{   
     background-color: black;
     color: #F5B258;
-    display: block;
 }
 
 #tool{
@@ -169,5 +171,98 @@ li a{
 .elt-seat input:checked + div {
     border: 1px solid blue;
     background: #8080ff;
+    color: #ffffff;
+}
+
+.user_block{
+    background-color: rgba(10, 116, 157, 0.7);
+
+    margin: 10px auto;
+    max-width: 1400px;
+    font-family: Helvetica;
+    padding: 16px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.user_block h4 {
+    padding-right: 5px;
+}
+
+.line{
+    padding-bottom: 12px;
+    border-bottom: 1px solid #dddddd;
+    display: flex;
+    justify-content: space-between;
+}
+
+.inputs input {
+    background: #f1f1f1 no-repeat;
+    padding: 15px 15px 15px 30px;
+    margin: 0 0 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.right {
+    height: 27px;
+    margin: 5px;
+}
+
+
+.edit_news{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit_news input, .edit_news textarea {
+    min-width: 250px;
+    min-height: 30px;
+    margin-bottom: 10px;
+    border: none;
+    padding-left: 5px;
+}
+
+.edit_news textarea{
+    min-height: 80px;
+    resize: none;
+}
+
+.title{
+
+}
+
+.d-flex{display: flex}
+.d-between{ justify-content: space-between}
+.d-center {align-items: center}
+
+.__r {
+    color: #3B3C40;
+    font-size: 14px;
+    line-height: 24px;
+    width: 200px;
+    border: 1px solid #3B3C40;
+    border-radius: 30px;
+    transition: 0.5s ease-in-out;
+}
+
+.__r:hover {
+    transition: 0.5s ease-in-out;
+    opacity: 0.8;
+}
+
+.html_architect{
+    background: #dddddd;
+}
+
+.occupied{
+    background: #ff0000;
+}
+
+.elt-seat input:disabled + div {
+    border: 1px solid blue;
+    background: #ff0000;
     color: #ffffff;
 }

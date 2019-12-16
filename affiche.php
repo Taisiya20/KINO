@@ -15,17 +15,19 @@
     $i=0;
     //var_dump($res[1]['release']);
 
-    while (count($res[$i])>$i){
+//    while (count($res[$i])>$i){
+    foreach ($res as $key){
+        if ($key['hidden'])
+            continue;
     echo'
-    <div class="article"> Дата выхода: '.$res[$i]['release'].'
-            <h2>'.$res[$i]['title'].'</h2>
-            <h3> Жанр:'.$res[$i]['genre'].'</h3>
-			<h3> Возраст:'.$res[$i]['age'].'</h3>
-			<h3> Цена билета:'.$res[$i]['price'].'</h3>
-            <p class="plot">'.$res[$i]['plot'].'<p>
-            <form action="film.php" method="post"><div class="choose"><input type="submit" name="'.$res[$i]['id'].'" value="выбрать места"></div></form>
+    <div class="article"> Дата выхода: '. $key['release'].'
+            <h2>' . $key['title'] . '</h2>';
+            //<h3> Жанр:'.$res[$i]['genre'].'</h3>
+			//<h3> Возраст:'.$res[$i]['age'].'</h3>
+    echo '<h3> Цена билета:' . $key['price'] . ' рублей</h3>
+            <p class="plot">' . $key['plot'] . '<p>
+            <form action="list.php" method="post"><div class="choose"><input type="submit" name="'.$key['id'].'" value="выбрать места"></div></form>
     </div>';
-    $i++;
     }
 
 ?>

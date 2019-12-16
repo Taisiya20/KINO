@@ -41,7 +41,7 @@ switch ($cinema){
         echo "<h2>Зал кинотеатра \"Hollywood\"</h2>";
         include 'cinemaHol.php';
         break;
-    case '1':
+    case null:
         break;
     default:
         echo '<p class="wr">Попробуйте еще раз</p>';

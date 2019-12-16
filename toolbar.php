@@ -24,7 +24,7 @@
             <li class="tool"><p><a href="contacts.php">Контакты</a></p></li>
                 <?php
             if(isset($_SESSION["name"])) {
-                echo '<li class="tool"><p><a href="profile.php">Привет,<i>'.$_SESSION['name'].'</i></a></p></li>';//TODO: Здесь также должно выводиться имя
+                echo '<li class="tool"><p><a href="profile.php">Привет, <span>'.$_SESSION['name'].'</span></a></p></li>';//TODO: Здесь также должно выводиться имя
             }
             else {
                 echo '<li class="tool aut"><p><a href="testhand.php">Вход/Регистрация</a></p></li>';//TODO: Здесь должно быть всплывающее окно входа

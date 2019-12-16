@@ -1,6 +1,8 @@
 <?php
     include 'toolbar.php';
     include 'my_sql.php';
+    require_once "area_gen.php";
+    require_once "form_creator.php";
     $sql='select * from user_db where name=:name';
     $res=sql_q($sql,$dbh,'info',$_SESSION['name']);
     $_SESSION['id']=$res[0]['id'];
@@ -37,5 +39,61 @@
     </form>
     <br>
     </div>
-    </body>
-</html>
+<?php
+    $id = $_SESSION['id'];
+    $permissions = $_SESSION['ed'];
+    $sql = "SELECT * FROM `sign` WHERE user_id=$id";
+    $res=sql_q($sql,$dbh,'info');
+//    foreach ($res as $key)
+//    {
+//        $title
+//        echo "<div class='user_block line'>";
+//        echo "<h3>$title</h3>";
+//    }
+    if ($permissions) {
+
+        $sql ="SELECT * FROM `soonfilms` where creator_id = $id";
+        $res=sql_q($sql,$dbh,'info');
+        foreach ($res as $key) {
+//            var_dump($key);
+            $title = str_pad($key['title'], 100);
+            $form = new form('post', 'editor.php');
+            $input = new area_gen();
+            echo "<div class='user_block'>";
+            echo "<h3>$title</h3>";
+            echo "<div class='line'>";
+            $form->display();
+            $input->make_hidden('article', $key['id']);
+            $input->make_hidden('action', 'edit');
+            $input->make_submit('submit', 'Изменить');
+            $form->end();
+
+            $form->display();
+            $input->make_hidden('article', $key['id']);
+            $input->make_hidden('status', $key['hidden']);
+            $input->make_hidden('action', 'hide');
+            if (!$key['hidden'])
+                $input->make_submit('submit', 'Скрыть');
+            else
+                $input->make_submit('submit', 'Показать');
+            $form->end();
+
+            $form->display();
+            $input->make_hidden('article', $key['id']);
+            $input->make_hidden('action', 'remove');
+            $input->make_submit('submit', 'Удалить');
+            $form->end();
+            echo "</div>";
+            echo "</div>";
+
+        }
+        $form = new form('post', 'editor.php');
+        $input = new area_gen();
+
+        $form->display();
+        $input->make_hidden('action', 'create');
+        $input->make_submit('submit', 'Создать');
+        $form->end();
+    }
+
+?>
