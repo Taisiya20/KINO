@@ -3,7 +3,7 @@ include 'toolbar.php';
 include 'my_sql.php';
 require_once 'area_gen.php';
 
-$sql = "SELECT * FROM `soonfilms` where `id`=" . $_POST['film_id'];
+$sql = "SELECT * FROM `soonfilms`";
 $res = sql_q($sql, $dbh, 'info');
 $i = 0;
 //var_dump($res[1]['release']);

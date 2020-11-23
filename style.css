@@ -1,22 +1,22 @@
-html,body{
-    margin:0;
+html, body {
+    margin: 0;
     padding: 0;
 }
 
-body{
+body {
     background-color: #F5B258;
-	background-image:url("img/fon.jpg");
+    background-image: url("img/fon.jpg");
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
 }
 
-p{
-    margin:0;
+p {
+    margin: 0;
 }
 
 /* цвет фона и текста MagicStars*/
-h1 span{
+h1 span {
     color: black;
     background-color: #075D7F;
     margin-left: 35%;
@@ -24,7 +24,7 @@ h1 span{
     padding: 1%;
 }
 
-#tool ul{
+#tool ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -40,13 +40,14 @@ h1 span{
     text-decoration: none;
 }
 
-#tool li{
+#tool li {
     float: left;
     width: 20%;
     /*height: 10%;*/
 
 }
-li a{
+
+li a {
     display: block;
     color: black;
     text-align: center;
@@ -57,25 +58,26 @@ li a{
 }
 
 /* цвет иконок сверху (меню) - афиша расписание и тд*/
-.tool :hover{   
+.tool :hover {
     background-color: black;
     color: #F5B258;
 }
 
-#tool{
-    color : indigo;
+#tool {
+    color: indigo;
 
 }
 
-#au{
+#au {
     margin-left: 10%;
 
 }
+
 #au ul {
     list-style-type: none;
 }
 
-#au li{
+#au li {
     float: left;
     width: 30%;
 
@@ -94,7 +96,7 @@ li a{
     width: 10%;
 }
 
-.code{
+.code {
     margin-left: 10%;
     font-family: Consolas;
     margin-right: 19%;
@@ -102,6 +104,7 @@ li a{
     margin-bottom: 10%;
     padding: 1%;
 }
+
 #info {
     background-color: rgba(93, 98, 56, 0.35);
     margin-left: 10%;
@@ -112,20 +115,55 @@ li a{
     padding-bottom: 1%;
     border-radius: 3%;
 }
-#fi{
+
+#fi {
     /*margin-left: 10%;*/
     background-color: #ffffff;
     padding-left: 15%;
 }
 
-#map{
+#map {
     background-color: #FFFFFF;
     margin-left: 10%;
     margin-right: 10%;
 }
 
+
+.filter {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 5%;
+    font-family: Helvetica;
+    padding: 2%;
+}
+
+.ordered {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 5%;
+    font-family: Helvetica;
+    padding: 2%;
+}
+
+#box {
+    position: static;
+    top: 0;
+    left: 0;
+    float: left;
+    height: 100%;
+    width: 100%;
+    text-align: left;
+    overflow: hidden;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
 /*ячейки в афише с каждым из фильмов; цвет сделан прозрачен - 0.35*/
-.article{
+.article {
     margin-left: 10%;
     margin-right: 10%;
     margin-bottom: 5%;
@@ -136,10 +174,10 @@ li a{
 }
 
 .plot {
-	background-color:#0A749D;
+    background-color: #0A749D;
 }
 
-.hall{
+.hall {
     font-family: Helvetica;
     margin-left: 10%;
     margin-right: 10%;
@@ -152,15 +190,18 @@ li a{
     display: inline-block;
     font: bold 16px/1 sans-serif;
 }
+
 .elt-seat label {
     display: block;
 }
+
 .elt-seat input {
     position: absolute;
     width: 0;
     height: 0;
     visibility: hidden;
 }
+
 .elt-seat div {
     display: block;
     border: 1px solid #b0b0ff;
@@ -168,13 +209,14 @@ li a{
     background: #ffffff;
     color: #8080ff;
 }
+
 .elt-seat input:checked + div {
     border: 1px solid blue;
     background: #8080ff;
     color: #ffffff;
 }
 
-.user_block{
+.user_block {
     background-color: rgba(10, 116, 157, 0.7);
 
     margin: 10px auto;
@@ -189,7 +231,7 @@ li a{
     padding-right: 5px;
 }
 
-.line{
+.line {
     padding-bottom: 12px;
     border-bottom: 1px solid #dddddd;
     display: flex;
@@ -211,7 +253,7 @@ li a{
 }
 
 
-.edit_news{
+.edit_news {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -225,18 +267,26 @@ li a{
     padding-left: 5px;
 }
 
-.edit_news textarea{
+.edit_news textarea {
     min-height: 80px;
     resize: none;
 }
 
-.title{
+.title {
 
 }
 
-.d-flex{display: flex}
-.d-between{ justify-content: space-between}
-.d-center {align-items: center}
+.d-flex {
+    display: flex
+}
+
+.d-between {
+    justify-content: space-between
+}
+
+.d-center {
+    align-items: center
+}
 
 .__r {
     color: #3B3C40;
@@ -253,11 +303,11 @@ li a{
     opacity: 0.8;
 }
 
-.html_architect{
+.html_architect {
     background: #dddddd;
 }
 
-.occupied{
+.occupied {
     background: #ff0000;
 }
 

@@ -7,7 +7,7 @@ function get_vacant($res, $row, $seat){
 
     foreach ($res as $key)
     {
-        if ($key['row'] == $row)
+        if ($key['row_'] == $row)
             if ($key['seat'] == $seat)
                 return (false);
     }
@@ -22,6 +22,12 @@ function make_hall($dbh, $rows, $seat, $cinema_id){
     $res=sql_q($sql,$dbh,'info');
 //    var_dump($sql);
 //    var_dump($res);
+//    echo '<br>';
+//    for ($i1 = 1; $i1 <= $rows; $i1++) {
+//        for ($j1 = 1; $j1 <= $seat; $j1++) {
+//            echo $i1, '>', $j1, ':', get_vacant($res, $i1, $j1), '<br>';
+//        }
+//    }
     echo "<div class='line user_block'>";
     echo '<form method="post" action="create_sign.php">';
     echo '<div class="elt-seat" style="text-align: center" >';
@@ -34,7 +40,6 @@ function make_hall($dbh, $rows, $seat, $cinema_id){
         echo "<td>Ряд $i </td>";
         for ($j = 1; $j <= $seat; $j++) {
 
-//            $seats = $i * $j + $j;
             $seats_name = $i. '_' .$j;
             echo '<td>';
             echo '<label>';

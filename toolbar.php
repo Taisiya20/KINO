@@ -1,8 +1,7 @@
 <?php
-    //ini_set('session.use_cookies',true);
     session_start();
-    //include 'my_sql.php';
-
+require 'save.php';
+	mmm(10);
     ?>
     <!DOCTYPE html>
     <html>
@@ -11,6 +10,7 @@
         <title>Кинотеатр MagicStars</title>
         <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
         <link href="style.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
     </head>
 
     <body>
@@ -20,7 +20,7 @@
         <ul><b>
             <li class="tool"><p><a href="index.php">Добро пожаловать!</a></p></li>
             <li class="tool"><p><a href="affiche.php">Афиша</a></p></li>
-			<li class="tool"><p><a href="list.php">Расписание</a></p></li>
+			<li class="tool"><p><a href="schedule.php">Расписание</a></p></li>
             <li class="tool"><p><a href="contacts.php">Контакты</a></p></li>
                 <?php
             if(isset($_SESSION["name"])) {
